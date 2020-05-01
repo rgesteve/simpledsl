@@ -10,8 +10,8 @@ namespace simpledsl.sample
     {
         static void Main(string[] args)
         {
-            Node n = new Node();
-            Console.WriteLine($"Checking that the new child has {n.ChildCount} children!");
+            LiteralNode n = LiteralNode.One;
+            Console.WriteLine($"Checking that the new child has {n.ChildCount} children, with value {n}!");
         }
     }
 }
