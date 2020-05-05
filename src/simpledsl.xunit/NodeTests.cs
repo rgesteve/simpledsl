@@ -13,5 +13,12 @@ namespace simpledsl.xunit
             LiteralNode n = new LiteralNode(a);
             Assert.Equal(a, n.Value);
         }
+
+        [Fact]
+        public void ExplicitLiteralTest() {
+            float f = 5.0F;
+            var n = (Node)f;
+            Assert.IsType<LiteralNode>(n);
+        }
     }
 }
