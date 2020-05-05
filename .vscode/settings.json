@@ -10,7 +10,7 @@
     "files.associations" : {
         "Dockerfile*" : "dockerfile"
     },
-    "dotnet-test-explorer.testProjectPath": "${workspaceFolder}/src/simpledsl.xunit/simpledsl.xunit.csproj",
+    "dotnet-test-explorer.testProjectPath": "src/simpledsl.xunit/simpledsl.xunit.csproj",
     "dotnet-test-explorer.autoExpandTree": true,
     "dotnet-test-explorer.enableTelemetry": false
 }
