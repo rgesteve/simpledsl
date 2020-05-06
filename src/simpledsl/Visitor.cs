@@ -28,6 +28,15 @@ namespace simpledsl
         public void VisitNil(NilNode n) { /* empty */ }
         public void VisitLiteral(LiteralNode n) { /* empty */ }
         public void VisitAddSub(AddSubNode n) { /* empty */ }
+
+        // Could be implemented directly on the interface, but I'd have
+        // to switch to C# 8.0
+        public void ChildAccept(Node n)
+        {
+            for (int i = 0; i < n.ChildCount; i++) {
+                n.Accept(this); // should really have a children enumerator
+            }
+        }
     }
 
     public class PrettyPrinterVisitor : NodeVisitor

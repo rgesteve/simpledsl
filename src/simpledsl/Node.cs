@@ -17,8 +17,17 @@ namespace simpledsl
 
         public virtual void Accept(NodeVisitor n) 
         {
-            Console.WriteLine("In Node::Accept for NodeVisitor"); 
             n.VisitNode(this); 
+        }
+
+        public static Node operator+(Node _left, Node _right)
+        {
+            return (new AddSubNode(_left, _right, true));
+        }
+
+        public static Node operator-(Node _left, Node _right)
+        {
+            return (new AddSubNode(_left, _right, false));
         }
 
     }
@@ -175,7 +184,7 @@ namespace simpledsl
 
         public override string ToString()
         {
-            return $"({Left})";
+            return $"({Left} + {Right})";
         }
         public override void Accept(NodeVisitor v)
         {

@@ -14,6 +14,8 @@ namespace simpledsl.sample
             Console.WriteLine($"Checking that the new child has {n.ChildCount} children, with value {n}!");
             var nil = NilNode.Nil;
             Console.WriteLine($"The node nil is {nil}.");
+            var sum = n + (Node)6;
+            Console.WriteLine($"The node sum is {sum}");
             NodeVisitor v = new PrettyPrinterVisitor();
             n.Accept(v);
             Console.WriteLine("Done!");
