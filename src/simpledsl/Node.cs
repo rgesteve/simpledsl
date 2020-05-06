@@ -15,6 +15,12 @@ namespace simpledsl
             return new LiteralNode(f);
         }
 
+        public virtual void Accept(NodeVisitor n) 
+        {
+            Console.WriteLine("In Node::Accept for NodeVisitor"); 
+            n.VisitNode(this); 
+        }
+
     }
 
     /// <summary>
@@ -39,15 +45,31 @@ namespace simpledsl
         public override string MLIR() {
             return $"Literal<1> [{Value}]";
         }
+
+        public override void Accept(NodeVisitor n) {
+            n.VisitLiteral(this);
+        }
         public static LiteralNode One = new LiteralNode(1);
         public static LiteralNode Zero = new LiteralNode(0);
     }
 
     public class NilNode : Node
     {
+        public static NilNode Nil = new NilNode();
+
+        private NilNode()
+        {
+            /* empty -- use `Nil` instead */
+        }
         public override object Clone()
         {
-            throw new NotImplementedException();
+            return this;
+        }
+
+        public override void Accept(NodeVisitor n)
+        {
+            Console.WriteLine("In PrettyPrint accept for nilnode");
+            n.VisitNil(this);
         }
 
         public override string MLIR()
@@ -57,7 +79,7 @@ namespace simpledsl
 
         public override string ToString()
         {
-            return base.ToString();
+            return "NILNODE";
         }
     }
 }

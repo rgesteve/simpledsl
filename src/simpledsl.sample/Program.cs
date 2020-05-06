@@ -12,6 +12,11 @@ namespace simpledsl.sample
         {
             LiteralNode n = LiteralNode.One;
             Console.WriteLine($"Checking that the new child has {n.ChildCount} children, with value {n}!");
+            var nil = NilNode.Nil;
+            Console.WriteLine($"The node nil is {nil}.");
+            NodeVisitor v = new PrettyPrinterVisitor();
+            n.Accept(v);
+            Console.WriteLine("Done!");
         }
     }
 }

@@ -5,7 +5,7 @@ namespace simpledsl
     public interface NodeVisitor
     {
         void VisitNode(Node n);
-        // void VisitNil(NilNode n);
+        void VisitNil(NilNode n);
         void VisitLiteral(LiteralNode n);
         /*
         void VisitSymbol(SymbolNode n);
@@ -23,10 +23,27 @@ namespace simpledsl
     public class NodeVisitorImpl : NodeVisitor
     {
         public void VisitNode(Node n) { /* empty */ }
+        public void VisitNil(NilNode n) { /* empty */ }
         public void VisitLiteral(LiteralNode n) { /* empty */ }
-        
-        // void VisitNil(NilNode n);
+    }
 
+    public class PrettyPrinterVisitor : NodeVisitor
+    {
+        public void VisitLiteral(LiteralNode n)
+        {
+            Console.WriteLine($"Literal: {n}");
+        }
+
+        public void VisitNil(NilNode n)
+        {
+            Console.WriteLine($"Nil node: {n}");
+        }
+
+        public void VisitNode(Node n)
+        {
+            //throw new NotImplementedException(); // shouldn't be called
+            Console.WriteLine("Pretty printer visiting node");
+        }
     }
 
 }

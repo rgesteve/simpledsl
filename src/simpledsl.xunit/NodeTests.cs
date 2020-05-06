@@ -20,5 +20,11 @@ namespace simpledsl.xunit
             var n = (Node)f;
             Assert.IsType<LiteralNode>(n);
         }
+
+        [Fact]
+        public void NilTest() {
+            var n = NilNode.Nil;
+            Assert.IsType<NilNode>(n);
+        }
     }
 }
