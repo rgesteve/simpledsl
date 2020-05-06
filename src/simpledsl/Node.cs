@@ -184,7 +184,7 @@ namespace simpledsl
 
         public override string ToString()
         {
-            return $"({Left} + {Right})";
+            return $"({Left} {(IsAddition?"+":"-")} {Right})";
         }
         public override void Accept(NodeVisitor v)
         {

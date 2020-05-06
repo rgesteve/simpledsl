@@ -16,6 +16,8 @@ namespace simpledsl.sample
             Console.WriteLine($"The node nil is {nil}.");
             var sum = n + (Node)6;
             Console.WriteLine($"The node sum is {sum}");
+            var sub = nil - (Node)6;
+            Console.WriteLine($"The node sum is {sub}");
             NodeVisitor v = new PrettyPrinterVisitor();
             n.Accept(v);
             Console.WriteLine("Done!");

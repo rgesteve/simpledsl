@@ -38,5 +38,11 @@ namespace simpledsl.xunit
             var n = (Node)3 + (Node)4;
             Assert.IsType<AddSubNode>(n);
         }
+
+        [Fact]
+        public void AddSubRightOp() {
+            AddSubNode n = (AddSubNode)((Node)3 - NilNode.Nil);
+            Assert.False(n.IsAddition);
+        }
     }
 }
