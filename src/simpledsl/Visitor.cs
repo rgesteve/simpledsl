@@ -9,7 +9,9 @@ namespace simpledsl
         void VisitLiteral(LiteralNode n);
         /*
         void VisitSymbol(SymbolNode n);
+        */
         void VisitAddSub(AddSubNode n);
+        /*
         void VisitMulDiv(MulDivNode n);
         void VisitPow(PowNode n);
         void VisitNegate(NegateNode n);
@@ -25,6 +27,7 @@ namespace simpledsl
         public void VisitNode(Node n) { /* empty */ }
         public void VisitNil(NilNode n) { /* empty */ }
         public void VisitLiteral(LiteralNode n) { /* empty */ }
+        public void VisitAddSub(AddSubNode n) { /* empty */ }
     }
 
     public class PrettyPrinterVisitor : NodeVisitor
@@ -39,11 +42,14 @@ namespace simpledsl
             Console.WriteLine($"Nil node: {n}");
         }
 
+        public void VisitAddSub(AddSubNode n)
+        {
+            Console.WriteLine($"An addition/subtraction operator");       
+        }
+
         public void VisitNode(Node n)
         {
-            //throw new NotImplementedException(); // shouldn't be called
-            Console.WriteLine("Pretty printer visiting node");
-        }
+            throw new NotImplementedException(); // shouldn't be called
+        }        
     }
-
 }

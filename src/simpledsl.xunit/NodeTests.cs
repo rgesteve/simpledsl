@@ -26,5 +26,11 @@ namespace simpledsl.xunit
             var n = NilNode.Nil;
             Assert.IsType<NilNode>(n);
         }
+
+        [Fact]
+        public void SimpleAddSubNodeTest() {
+            var n = new AddSubNode(NilNode.Nil, NilNode.Nil, true);
+            Assert.Equal(2, n.ChildCount);
+        }
     }
 }
